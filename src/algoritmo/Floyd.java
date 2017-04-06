@@ -15,7 +15,7 @@ import javax.swing.JProgressBar;
 public class Floyd extends Thread{
     
     private int [][] matrizC;
-    private int [][] matrizZ;
+    private static int [][] matrizZ;
     private JLabel negativo;
     private JLabel aislado;
     private JLabel mensaje;
@@ -35,7 +35,7 @@ public class Floyd extends Thread{
         matrizZ = Z;
     }
     
-    private void inicializarMatrizZ(){
+    private static void inicializarMatrizZ(){
         for(int i = 0; i < matrizZ.length; i++){
             for(int j = 0; j < matrizZ[i].length; j++){
                 matrizZ[i][j] = i + 1;
@@ -52,7 +52,6 @@ public class Floyd extends Thread{
         int i;
         int j;
         int k = 0;
-        inicializarMatrizZ();
         while(k < matrizC.length){
             for(i = 0; i < matrizC.length; i++){
                 for(j = 0; j < matrizC[i].length; j++){
@@ -69,13 +68,19 @@ public class Floyd extends Thread{
                         aislado.setText("¡Se encontró que el nodo "+a+" es un nodo aislado!");
                         System.out.println("¡Se encontró que el nodo "+a+" es un nodo aislado!");
                     }
+                    System.out.println("");
+                    System.out.println("Matriz C:");
                     imprimirMatrizEnConsola(matrizC);
+                    System.out.println("");
+                    System.out.println("Matriz Z:");
                     imprimirMatrizEnConsola(matrizZ);
+                    barrita.setValue(k);
+                    barrita.repaint();
                 }
             }
+            k++;
             barrita.setValue(k);
             barrita.repaint();
-            k++;
         }
         mensaje.setText("¡Listo!");
         System.out.println("¡Listo!\n");
