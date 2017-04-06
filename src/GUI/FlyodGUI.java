@@ -20,21 +20,20 @@ public class FlyodGUI extends javax.swing.JFrame {
     private int [][] matrizC;
     private int [][] matrizZ;
     private int nodos;
+    public javax.swing.JProgressBar jBarra1;
     
     public FlyodGUI() {
         initComponents();
         etiquetaSO.setText(System.getProperty("os.name").toUpperCase());
         etiquetaArquitectura.setText(System.getProperty("os.arch").toUpperCase());
         etiquetaVersion.setText(System.getProperty("os.version").toUpperCase());
-        if(System.getProperty("os.arch").toUpperCase().equals("AMD64")){
-            etiquetaOrden.setText("Ok!");
-        }
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jButtonArrancar = new javax.swing.JButton();
         jTextFieldEntradaNumeroNodos = new javax.swing.JTextField();
@@ -47,15 +46,19 @@ public class FlyodGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabelCircuitos = new javax.swing.JLabel();
         jLabelAislado = new javax.swing.JLabel();
-        jBarra = new javax.swing.JProgressBar(0, nodos * 10);
+        jBarra = new javax.swing.JProgressBar(0, 10);
         jLabelMensajeListo = new javax.swing.JLabel();
         etiquetaSO = new javax.swing.JLabel();
         etiquetaArquitectura = new javax.swing.JLabel();
         etiquetaVersion = new javax.swing.JLabel();
-        etiquetaOrden = new javax.swing.JLabel();
         jLabelVersion = new javax.swing.JLabel();
         jLabelSO = new javax.swing.JLabel();
         jLabelArch = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ruta más corta entre todo par de nodos");
@@ -115,29 +118,35 @@ public class FlyodGUI extends javax.swing.JFrame {
 
         etiquetaVersion.setText("jLabel4");
 
-        etiquetaOrden.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        etiquetaOrden.setText("jLabel4");
-
         jLabelVersion.setText("Versión:");
 
         jLabelSO.setText("SO:");
 
         jLabelArch.setText("Arquitectura:");
 
+        jMenu2.setText("Archivo");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Etiqueta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldEntradaNumeroNodos))
-                        .addGap(17, 17, 17)
-                        .addComponent(jButtonArrancar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Etiqueta)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldEntradaNumeroNodos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonArrancar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(125, 125, 125)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -145,15 +154,16 @@ public class FlyodGUI extends javax.swing.JFrame {
                             .addComponent(jLabelCircuitos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(234, 234, 234)
-                                        .addComponent(jLabelMensajeListo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelMensajeListo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,20 +173,15 @@ public class FlyodGUI extends javax.swing.JFrame {
                                     .addComponent(jLabelSO)
                                     .addComponent(jLabelArch))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(etiquetaSO, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                    .addComponent(etiquetaArquitectura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(etiquetaArquitectura, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(etiquetaSO, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabelVersion)
-                                        .addGap(25, 25, 25)
-                                        .addComponent(etiquetaVersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addComponent(etiquetaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(etiquetaVersion)))))))
+                .addGap(7, 7, 7))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,15 +215,12 @@ public class FlyodGUI extends javax.swing.JFrame {
                     .addComponent(jLabelVersion)
                     .addComponent(jLabelSO))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiquetaArquitectura)
-                            .addComponent(jLabelArch))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelCircuitos))
-                    .addComponent(etiquetaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaArquitectura)
+                    .addComponent(jLabelArch))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelCircuitos)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelAislado))
         );
 
@@ -245,12 +247,13 @@ public class FlyodGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String N = jTextFieldEntradaNumeroNodos.getText();
         nodos = Integer.parseInt(N);
-        if(nodos < 0 || nodos > 10){
+        if(nodos <= 0 || nodos > 10){
             new Advertencia().setVisible(true);
+        }else{
+            matrizC = new int [nodos][nodos];
+            matrizZ = new int [nodos][nodos];
+            jBarra = new javax.swing.JProgressBar(0, nodos + 1);
         }
-        //nodos = Integer.parseInt(N);
-        matrizC = new int [nodos][nodos];
-        matrizZ = new int [nodos][nodos];
     }//GEN-LAST:event_jTextFieldEntradaNumeroNodosActionPerformed
 
     /**
@@ -264,7 +267,7 @@ public class FlyodGUI extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -289,7 +292,6 @@ public class FlyodGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Etiqueta;
     private static javax.swing.JLabel etiquetaArquitectura;
-    private javax.swing.JLabel etiquetaOrden;
     private static javax.swing.JLabel etiquetaSO;
     private javax.swing.JLabel etiquetaVersion;
     public javax.swing.JProgressBar jBarra;
@@ -303,6 +305,10 @@ public class FlyodGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMensajeListo;
     private javax.swing.JLabel jLabelSO;
     private javax.swing.JLabel jLabelVersion;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
