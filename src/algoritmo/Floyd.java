@@ -60,16 +60,8 @@ public class Floyd extends Thread{
                         matrizC[i][j] = matrizC[i][k] + matrizC[k][j];
                         matrizZ[i][j] = k + 1;
                     }
-                    System.out.println("");
-                    System.out.println("Matriz C:");
-                    imprimirMatrizEnConsola(matrizC);
-                    System.out.println("");
-                    System.out.println("Matriz Z:");
-                    imprimirMatrizEnConsola(matrizZ);
                 }
             }
-            barrita.setValue(k);
-            barrita.repaint();
             k++;
         }
         mensaje.setText("¡Listo!");
@@ -89,6 +81,8 @@ public class Floyd extends Thread{
                     System.out.println("¡Se encontraron circuitos negativos!");
                 }
             }
+            barrita.setValue(i);
+            barrita.repaint();
         }
     }
     
@@ -96,9 +90,20 @@ public class Floyd extends Thread{
         System.out.println("");
         for (int[] m1 : m) {
             for (int j = 0; j < m1.length; j++) {
-                System.out.printf("%4d", m1[j]);
+                System.out.printf("%5d", m1[j]);
             }
             System.out.println("");
+        }
+    }
+    
+    public void mostrarIteraciones(){
+        for(int i = 0; i < matrizC.length; i++){
+            System.out.println("");
+            System.out.println("Matriz C:");
+            imprimirMatrizEnConsola(matrizC);
+            System.out.println("");
+            System.out.println("Matriz Z:");
+            imprimirMatrizEnConsola(matrizZ);
         }
     }
 
@@ -112,12 +117,12 @@ public class Floyd extends Thread{
     
     @Override
     public void run(){
-        calcularRutas();
+        mostrarIteraciones();
+        analizar();
     }
     
     public void ejecutar(){
         calcularRutas();
-        analizar();
     }
     
 }

@@ -31,6 +31,17 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuGuardarActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuNuevo">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+N"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Nuevo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuNuevoActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSalir">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
@@ -90,26 +101,31 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="jLabelNodoAislado" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabelArch" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="etiquetaArquitectura" min="-2" pref="54" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
+                              <Component id="jLabelNegativo2" min="-2" pref="276" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabelSO" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="etiquetaSO" min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="etiquetaSO" min="-2" pref="71" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="etiquetaVersion" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="etiquetaVersion" min="-2" pref="150" max="-2" attributes="0"/>
                           <Component id="jLabelVersion" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -197,12 +213,14 @@
                   <Component id="jLabelVersion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="etiquetaSO" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelSO" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNegativo2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="etiquetaArquitectura" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelArch" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="etiquetaVersion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNodoAislado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Component id="jLabelCircuitos" min="-2" max="-2" attributes="0"/>
@@ -338,6 +356,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etiquetaInfinito">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNegativo2">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNodoAislado">
     </Component>
   </SubComponents>
 </Form>
