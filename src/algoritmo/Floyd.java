@@ -35,10 +35,10 @@ public class Floyd extends Thread{
         matrizZ = Z;
     }
     
-    private void inicializarMatrizZ(){
+    public void inicializarMatrizZ(int [][] m){
         for(int i = 0; i < matrizZ.length; i++){
             for(int j = 0; j < matrizZ[i].length; j++){
-                matrizZ[i][j] = i + 1;
+                m[i][j] = i + 1;
             }
         }
     }
@@ -52,37 +52,44 @@ public class Floyd extends Thread{
         int i;
         int j;
         int k = 0;
-        inicializarMatrizZ();
+        inicializarMatrizZ(matrizZ);
         while(k < matrizC.length){
             for(i = 0; i < matrizC.length; i++){
                 for(j = 0; j < matrizC[i].length; j++){
-                    if(matrizC[i][j] < 0){
-                        negativo.setText("¡Se encontraron circuitos negativos!");
-                        System.out.println("¡Se encontraron circuitos negativos!");
-                    }
                     if(matrizC[i][k] + matrizC[k][j] < matrizC[i][j]){
                         matrizC[i][j] = matrizC[i][k] + matrizC[k][j];
                         matrizZ[i][j] = k + 1;
                     }
-                    if(matrizC[i][j] == 999){
-                        String a = String.valueOf(i + 1);
-                        aislado.setText("¡Se encontró que el nodo "+a+" es un nodo aislado!");
-                        System.out.println("¡Se encontró que el nodo "+a+" es un nodo aislado!");
-                    }
-                    /*System.out.println("");
+                    System.out.println("");
                     System.out.println("Matriz C:");
                     imprimirMatrizEnConsola(matrizC);
                     System.out.println("");
                     System.out.println("Matriz Z:");
-                    imprimirMatrizEnConsola(matrizZ);*/
+                    imprimirMatrizEnConsola(matrizZ);
                 }
             }
-            barrita.setValue(k+1);
+            barrita.setValue(k);
             barrita.repaint();
             k++;
         }
         mensaje.setText("¡Listo!");
         System.out.println("¡Listo!\n");
+    }
+    
+    private void analizar(){
+        for(int i = 0; i < matrizC.length; i++){
+            for(int j = 0; j < matrizC[i].length; j++){
+                if(matrizC[j][i] == 999){
+                     String a = String.valueOf(i + 1);
+                    aislado.setText("¡Se encontró que el nodo "+a+" es un nodo aislado!");
+                    System.out.println("¡Se encontró que el nodo "+a+" es un nodo aislado!");
+                }
+                if(matrizC[i][j] < 0){
+                    negativo.setText("¡Se encontraron circuitos negativos!");
+                    System.out.println("¡Se encontraron circuitos negativos!");
+                }
+            }
+        }
     }
     
     private void imprimirMatrizEnConsola(int [][] m){
@@ -106,6 +113,11 @@ public class Floyd extends Thread{
     @Override
     public void run(){
         calcularRutas();
+    }
+    
+    public void ejecutar(){
+        calcularRutas();
+        analizar();
     }
     
 }

@@ -6,6 +6,7 @@
 package GUI;
 
 import algoritmo.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * @author SPQR14
@@ -20,7 +21,6 @@ public class FlyodGUI extends javax.swing.JFrame {
     private int [][] matrizC;
     private int [][] matrizZ;
     private int nodos;
-    public javax.swing.JProgressBar jBarra1;
     
     public FlyodGUI() {
         initComponents();
@@ -34,6 +34,7 @@ public class FlyodGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
+        canvas1 = new java.awt.Canvas();
         jLabel1 = new javax.swing.JLabel();
         jButtonArrancar = new javax.swing.JButton();
         jTextFieldEntradaNumeroNodos = new javax.swing.JTextField();
@@ -41,12 +42,12 @@ public class FlyodGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         matrizDeDistancias = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jMatrizDeRutas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabelCircuitos = new javax.swing.JLabel();
         jLabelAislado = new javax.swing.JLabel();
-        jBarra = new javax.swing.JProgressBar(0, 10);
+        jBarra = new javax.swing.JProgressBar(0, nodos + 1);
         jLabelMensajeListo = new javax.swing.JLabel();
         etiquetaSO = new javax.swing.JLabel();
         etiquetaArquitectura = new javax.swing.JLabel();
@@ -54,9 +55,13 @@ public class FlyodGUI extends javax.swing.JFrame {
         jLabelVersion = new javax.swing.JLabel();
         jLabelSO = new javax.swing.JLabel();
         jLabelArch = new javax.swing.JLabel();
+        etiquetaInfinito = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
+        jMenuGuardar = new javax.swing.JMenuItem();
+        jMenuSalir = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuAcercaDe = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -98,7 +103,7 @@ public class FlyodGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(matrizDeDistancias);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jMatrizDeRutas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -106,7 +111,7 @@ public class FlyodGUI extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jMatrizDeRutas);
 
         jLabel2.setText("Matriz C");
 
@@ -125,9 +130,37 @@ public class FlyodGUI extends javax.swing.JFrame {
         jLabelArch.setText("Arquitectura:");
 
         jMenu2.setText("Archivo");
+
+        jMenuGuardar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuGuardar.setText("Guardar");
+        jMenuGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuGuardarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuGuardar);
+
+        jMenuSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuSalir.setText("Salir");
+        jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSalirActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuSalir);
+
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Edit");
+        jMenu3.setText("Ayuda");
+
+        jMenuAcercaDe.setText("Acerca De...");
+        jMenuAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAcercaDeActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuAcercaDe);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -139,55 +172,61 @@ public class FlyodGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Etiqueta)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldEntradaNumeroNodos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonArrancar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(125, 125, 125)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabelAislado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelCircuitos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelMensajeListo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelArch)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelSO)
-                                    .addComponent(jLabelArch))
-                                .addGap(18, 18, 18)
+                                .addComponent(etiquetaArquitectura, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelSO)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(etiquetaSO, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiquetaVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelVersion))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(jButtonArrancar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(125, 125, 125)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabelAislado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelCircuitos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(etiquetaInfinito))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etiquetaArquitectura, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(etiquetaSO, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelVersion)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(etiquetaVersion)))))))
-                .addGap(7, 7, 7))
+                                        .addGap(13, 13, 13)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(29, 29, 29)
+                                                .addComponent(jBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabelMensajeListo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Etiqueta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldEntradaNumeroNodos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(7, 7, 7))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(Etiqueta)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Etiqueta)
+                    .addComponent(jTextFieldEntradaNumeroNodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -197,28 +236,28 @@ public class FlyodGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButtonArrancar)
-                                .addComponent(jTextFieldEntradaNumeroNodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(etiquetaInfinito)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiquetaSO)
-                    .addComponent(etiquetaVersion)
                     .addComponent(jLabelVersion)
+                    .addComponent(etiquetaSO)
                     .addComponent(jLabelSO))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaArquitectura)
-                    .addComponent(jLabelArch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabelArch)
+                    .addComponent(etiquetaVersion))
+                .addGap(53, 53, 53)
                 .addComponent(jLabelCircuitos)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelAislado))
@@ -228,11 +267,12 @@ public class FlyodGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonArrancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArrancarActionPerformed
+        matrizC = this.leerMatrizC();
         Floyd floyd;
-        floyd = new Floyd(matrizC, matrizZ,jLabelAislado,jLabelCircuitos,jLabelMensajeListo,jBarra );
-        floyd.start();
-        matrizC = floyd.getMatrizC();
-        matrizZ = floyd.getMatrizZ();
+        floyd = new Floyd(matrizC, matrizZ,jLabelAislado,jLabelCircuitos,jLabelMensajeListo,jBarra);
+        floyd.ejecutar();
+        this.mostrarMatrizZ(floyd.getMatrizZ());
+        this.mostrarMatrizC(floyd.getMatrizC());
     }//GEN-LAST:event_jButtonArrancarActionPerformed
 
     private void jTextFieldEntradaNumeroNodosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEntradaNumeroNodosKeyPressed
@@ -244,17 +284,33 @@ public class FlyodGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldEntradaNumeroNodosKeyTyped
 
     private void jTextFieldEntradaNumeroNodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEntradaNumeroNodosActionPerformed
-        // TODO add your handling code here:
-        String N = jTextFieldEntradaNumeroNodos.getText();
-        nodos = Integer.parseInt(N);
+        nodos = Integer.parseInt(jTextFieldEntradaNumeroNodos.getText());
+        Floyd floyd;
         if(nodos <= 0 || nodos > 10){
             new Advertencia().setVisible(true);
         }else{
             matrizC = new int [nodos][nodos];
             matrizZ = new int [nodos][nodos];
-            jBarra = new javax.swing.JProgressBar(0, nodos + 1);
+            floyd = new Floyd(matrizC, matrizZ);
+            floyd.inicializarMatrizZ(matrizZ);
+            matrizZ = floyd.getMatrizZ();
+            this.mostrarMatrizZ(matrizZ);
+            this.mostrarMatrizC(matrizC);
         }
     }//GEN-LAST:event_jTextFieldEntradaNumeroNodosActionPerformed
+
+    private void jMenuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuGuardarActionPerformed
+
+    private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jMenuSalirActionPerformed
+
+    private void jMenuAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAcercaDeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuAcercaDeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,10 +344,50 @@ public class FlyodGUI extends javax.swing.JFrame {
             new FlyodGUI().setVisible(true);
         });        
     }
+    
+    private void mostrarMatrizZ(int [][] z){
+        DefaultTableModel modeloZ;
+        modeloZ = (DefaultTableModel) jMatrizDeRutas.getModel();
+        modeloZ.setRowCount(nodos);
+        modeloZ.setColumnCount(nodos);
+        for(int i = 0; i < nodos; i++){
+            for(int j = 0; j < nodos; j++){
+                jMatrizDeRutas.setValueAt(matrizZ[i][j], i, j);
+            }
+        }
+    }
+    
+    private void mostrarMatrizC(int [][] c){
+        etiquetaInfinito.setText("999 para infinito.");
+        DefaultTableModel modeloC;
+        modeloC = (DefaultTableModel) matrizDeDistancias.getModel();
+        modeloC.setRowCount(nodos);
+        modeloC.setColumnCount(nodos);
+        for(int i = 0; i < nodos; i++){
+            for(int j = 0; j < nodos; j++){
+                matrizDeDistancias.setValueAt(matrizC[i][j], i, j);
+            }
+        }
+    }
+    
+    public int [][] leerMatrizC(){
+        String dato;
+        DefaultTableModel modeloC;
+        modeloC = (DefaultTableModel) matrizDeDistancias.getModel();
+        for(int i = 0; i < nodos; i++){
+            for(int j = 0; j < nodos; j++){
+                dato = String.valueOf(modeloC.getValueAt(i, j));
+                matrizC[i][j] = Integer.parseInt(dato);
+            }
+        }
+        return matrizC;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Etiqueta;
+    private java.awt.Canvas canvas1;
     private static javax.swing.JLabel etiquetaArquitectura;
+    private javax.swing.JLabel etiquetaInfinito;
     private static javax.swing.JLabel etiquetaSO;
     private javax.swing.JLabel etiquetaVersion;
     public javax.swing.JProgressBar jBarra;
@@ -305,13 +401,16 @@ public class FlyodGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMensajeListo;
     private javax.swing.JLabel jLabelSO;
     private javax.swing.JLabel jLabelVersion;
+    private javax.swing.JTable jMatrizDeRutas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuItem jMenuAcercaDe;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuGuardar;
+    private javax.swing.JMenuItem jMenuSalir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldEntradaNumeroNodos;
     private javax.swing.JTable matrizDeDistancias;
     // End of variables declaration//GEN-END:variables
