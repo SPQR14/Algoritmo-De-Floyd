@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  *
  * @author spqr14
  */
-public class Guardar extends Thread {
+public class Guardar {
     
     int [][] mC;
     int [][] mZ;
@@ -39,13 +39,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray1();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,13 +65,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray2();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,13 +94,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b,c));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray3();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -126,13 +126,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b,c,d));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray4();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -161,13 +161,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b,c,d,e));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray5();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -199,13 +199,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b,c,d,e,f));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray6();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -240,13 +240,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b,c,d,e,f,g));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray7();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -284,13 +284,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b,c,d,e,f,g,h));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray8();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -331,13 +331,13 @@ public class Guardar extends Thread {
                         }
                     }
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
+                resultados.add(new Filas(a,b,c,d,e,f,g,h, i));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray9();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -387,7 +387,7 @@ public class Guardar extends Thread {
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
                 resultados.forEach((Filas filas) -> {
                 try {
-                    String data[] = filas.getArray();
+                    String data[] = filas.getArray10();
                     escritor.writeRecord(data);
                 } catch (IOException ex) {
                     Logger.getLogger(Guardar.class.getName()).log(Level.SEVERE, null, ex);
@@ -399,10 +399,5 @@ public class Guardar extends Thread {
                 
         }
     }
-    
-    @Override
-    public void run(){
-        guardar();
-    }
-    
+        
 }
