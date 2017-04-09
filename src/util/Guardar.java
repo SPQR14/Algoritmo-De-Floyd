@@ -26,20 +26,23 @@ public class Guardar {
     }
     
     public void guardar(){
-        ArrayList<Filas> resultados = new ArrayList();
+        //ArrayList<Filas> resultados = new ArrayList();
         int a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0, i = 0, j = 0;
+        int x = 0; 
+        int y = 0;
         String nombre = "lol";
         String ruta = "";
         switch (n){
             case 1:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a));
                 }
-                resultados.add(new Filas(a));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -55,17 +58,18 @@ public class Guardar {
                 break;
             }
             case 2:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b));
                 }
-                resultados.add(new Filas(a,b));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -81,20 +85,21 @@ public class Guardar {
                 break;
             }
             case 3:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c));
                 }
-                resultados.add(new Filas(a,b,c));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -110,23 +115,24 @@ public class Guardar {
                 break;
             }
             case 4:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
-                        if(j == 3){
-                            d = mC[i][j];
+                        if(y == 3){
+                            d = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c,d));
                 }
-                resultados.add(new Filas(a,b,c,d));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -142,26 +148,27 @@ public class Guardar {
                 break;
             }
             case 5:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
-                        if(j == 3){
-                            d = mC[i][j];
+                        if(y == 3){
+                            d = mC[x][y];
                         }
-                        if(j == 4){
-                            e = mC[i][j];
+                        if(y == 4){
+                            e = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c,d,e));
                 }
-                resultados.add(new Filas(a,b,c,d,e));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -177,29 +184,30 @@ public class Guardar {
                 break;
             }
             case 6:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
-                        if(j == 3){
-                            d = mC[i][j];
+                        if(y == 3){
+                            d = mC[x][y];
                         }
-                        if(j == 4){
-                            e = mC[i][j];
+                        if(y == 4){
+                            e = mC[x][y];
                         }
-                        if(j == 5){
-                            f = mC[i][j];
+                        if(y == 5){
+                            f = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c,d,e,f));
                 }
-                resultados.add(new Filas(a,b,c,d,e,f));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -215,32 +223,33 @@ public class Guardar {
                 break;
             }
             case 7:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
-                        if(j == 3){
-                            d = mC[i][j];
+                        if(y == 3){
+                            d = mC[x][y];
                         }
-                        if(j == 4){
-                            e = mC[i][j];
+                        if(y == 4){
+                            e = mC[x][y];
                         }
-                        if(j == 5){
-                            f = mC[i][j];
+                        if(y == 5){
+                            f = mC[x][y];
                         }
-                        if(j == 6){
-                            g = mC[i][j];
+                        if(y == 6){
+                            g = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c,d,e,f,g));
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -256,35 +265,36 @@ public class Guardar {
                 break;
             }
             case 8:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
-                        if(j == 3){
-                            d = mC[i][j];
+                        if(y == 3){
+                            d = mC[x][y];
                         }
-                        if(j == 4){
-                            e = mC[i][j];
+                        if(y == 4){
+                            e = mC[x][y];
                         }
-                        if(j == 5){
-                            f = mC[i][j];
+                        if(y == 5){
+                            f = mC[x][y];
                         }
-                        if(j == 6){
-                            g = mC[i][j];
+                        if(y == 6){
+                            g = mC[x][y];
                         }
-                        if(j == 7){
-                            h = mC[i][j];
+                        if(y == 7){
+                            h = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c,d,e,f,g,h));
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -300,38 +310,39 @@ public class Guardar {
                 break;
             }
             case 9:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(y = 0; y < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
-                        if(j == 3){
-                            d = mC[i][j];
+                        if(y == 3){
+                            d = mC[x][y];
                         }
-                        if(j == 4){
-                            e = mC[i][j];
+                        if(y == 4){
+                            e = mC[x][y];
                         }
-                        if(j == 5){
-                            f = mC[i][j];
+                        if(y == 5){
+                            f = mC[x][y];
                         }
-                        if(j == 6){
-                            g = mC[i][j];
+                        if(y == 6){
+                            g = mC[x][y];
                         }
-                        if(j == 7){
-                            h = mC[i][j];
+                        if(y == 7){
+                            h = mC[x][y];
                         }
-                        if(j == 8){
-                            i = mC[i][j];
+                        if(y == 8){
+                            i = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c,d,e,f,g,h, i));   
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h, i));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -347,41 +358,42 @@ public class Guardar {
                 break;
             }
             case 10:{
-                for(i = 0; i < mC.length; i++){
-                    for(j = 0; j < mC[i].length; j++){
-                        if(j == 0){
-                            a = mC[i][j];
+                ArrayList<Filas> resultados = new ArrayList();
+                for(x = 0; x < mC.length; x++){
+                    for(x = 0; x < mC[x].length; y++){
+                        if(y == 0){
+                            a = mC[x][y];
                         }
-                        if(j == 1){
-                            b = mC[i][j];
+                        if(y == 1){
+                            b = mC[x][y];
                         }
-                        if(j == 2){
-                            c = mC[i][j];
+                        if(y == 2){
+                            c = mC[x][y];
                         }
-                        if(j == 3){
-                            d = mC[i][j];
+                        if(y == 3){
+                            d = mC[x][y];
                         }
-                        if(j == 4){
-                            e = mC[i][j];
+                        if(y == 4){
+                            e = mC[x][y];
                         }
-                        if(j == 5){
-                            f = mC[i][j];
+                        if(y == 5){
+                            f = mC[x][y];
                         }
-                        if(j == 6){
-                            g = mC[i][j];
+                        if(y == 6){
+                            g = mC[x][y];
                         }
-                        if(j == 7){
-                            h = mC[i][j];
+                        if(y == 7){
+                            h = mC[x][y];
                         }
-                        if(j == 8){
-                            i = mC[i][j];
+                        if(y == 8){
+                            i = mC[x][y];
                         }
-                        if(j == 9){
-                            j = mC[i][j];
+                        if(y == 9){
+                            j = mC[x][y];
                         }
                     }
+                    resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
                 }
-                resultados.add(new Filas(a,b,c,d,e,f,g,h,i,j));
                 /*Selección del nombre del archivo y la ruta*/
                 /*temporalmente se nombrará nombre y ruta*/
                 CsvWriter escritor = new CsvWriter(ruta + nombre + ".csv");
@@ -396,7 +408,9 @@ public class Guardar {
                 escritor.close();
                 break;
             }
-                
+            default: {
+                System.out.println("No se pudo crear el archivo debido a un error desconocido.");
+            }    
         }
     }
         

@@ -60,8 +60,6 @@ public class FlyodGUI extends javax.swing.JFrame {
         jMenuGuardar = new javax.swing.JMenuItem();
         jMenuNuevo = new javax.swing.JMenuItem();
         jMenuSalir = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuAcercaDe = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -160,18 +158,6 @@ public class FlyodGUI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Ayuda");
-
-        jMenuAcercaDe.setText("Acerca De...");
-        jMenuAcercaDe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuAcercaDeActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuAcercaDe);
-
-        jMenuBar1.add(jMenu3);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,7 +217,7 @@ public class FlyodGUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Etiqueta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldEntradaNumeroNodos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextFieldEntradaNumeroNodos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(7, 7, 7))))
         );
         layout.setVerticalGroup(
@@ -325,10 +311,6 @@ public class FlyodGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuSalirActionPerformed
 
-    private void jMenuAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAcercaDeActionPerformed
-        
-    }//GEN-LAST:event_jMenuAcercaDeActionPerformed
-
     private void jMenuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuNuevoActionPerformed
         jBarra.setValue(0);
         jLabelMensajeListo.setText("");
@@ -411,6 +393,9 @@ public class FlyodGUI extends javax.swing.JFrame {
         for(int i = 0; i < nodos; i++){
             for(int j = 0; j < nodos; j++){
                 matrizDeDistancias.setValueAt(matrizC[i][j], i, j);
+                if(matrizC[i][j] >= 900){
+                    matrizDeDistancias.setValueAt("Infinito", i, j);
+                }
             }
         }
     }
@@ -451,8 +436,6 @@ public class FlyodGUI extends javax.swing.JFrame {
     private javax.swing.JTable jMatrizDeRutas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuItem jMenuAcercaDe;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuGuardar;
     private javax.swing.JMenuItem jMenuNuevo;

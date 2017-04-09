@@ -103,6 +103,10 @@ public class Filas {
         this.j = j;
     }
     
+    public Filas(){
+        
+    }
+    
     public String[] getArray1(){
         String datos[] = {String.valueOf(a)};
         return datos;

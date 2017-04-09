@@ -64,14 +64,12 @@ public class Floyd extends Thread{
             }
             k++;
         }
-        mensaje.setText("¡Listo!");
-        System.out.println("¡Listo!\n");
     }
     
     private void analizar(){
         for(int i = 0; i < matrizC.length; i++){
             for(int j = 0; j < matrizC[i].length; j++){
-                if(matrizC[j][i] == 999){
+                if(matrizC[j][i] >= 900){
                      String a = String.valueOf(i + 1);
                     aislado.setText("¡Se encontró que el nodo "+a+" es un nodo aislado!");
                     System.out.println("¡Se encontró que el nodo "+a+" es un nodo aislado!");
@@ -105,6 +103,8 @@ public class Floyd extends Thread{
             System.out.println("Matriz Z:");
             imprimirMatrizEnConsola(matrizZ);
         }
+        mensaje.setText("¡Listo!");
+        System.out.println("¡Listo!\n");
     }
 
     public int[][] getMatrizC() {
